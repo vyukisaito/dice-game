@@ -160,3 +160,23 @@ main {
   .hidden {
     display: none;
   }
+
+  span {
+    font-size: 5em;
+    padding-bottom: 50px;
+    color: white;
+    transition: all 0.75s;
+  }
+
+  .hidden2 {
+    display: none;
+  }
+
+    /*
+  .winner--0 {
+    display: none;
+  }
+
+  .winner--1 {
+    display: none;
+  } /*
