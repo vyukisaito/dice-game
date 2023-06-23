@@ -11,16 +11,32 @@ const current1El = document.getElementById('current--1');
 document.querySelector('.winner--1').classList.add('hidden2');
 document.querySelector('.winner--0').classList.add('hidden2');
 
+let scores, currentScore, activePlayer, playing
 
-score0El.textContent = 0;
-score1EL.textContent = 0;
-diceEl.classList.add('hidden');
 
-const scores = [0, 0]
-let currentScore = 0;
-let activePlayer = 0;
-// essa variavel tem que estar fora para que nossa ativada toda hora no click
-let playing = true
+const init = function() {
+    scores = [0, 0]
+    currentScore = 0;
+    activePlayer = 0;
+    // essa variavel tem que estar fora para que nossa ativada toda hora no click
+    playing = true;
+
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+    document.querySelector(`.winner--0`).classList.add(`hidden2`);
+    document.querySelector(`.winner--1`).classList.add(`hidden2`);
+    
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+
+    score0El.textContent = 0;
+    score1EL.textContent = 0;
+    diceEl.classList.add('hidden');
+
+}
+init()
 
 const switchPlayer = function() {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -66,7 +82,7 @@ btnNHold.addEventListener('click', function() {
         console.log(scores[activePlayer]);
     
         // cabou
-        if (scores[activePlayer] >= 10) {
+        if (scores[activePlayer] >= 100) {
             playing = false;
             diceEl.classList.add('hidden')
 
@@ -82,3 +98,6 @@ btnNHold.addEventListener('click', function() {
     }
 })
 
+btnNew.addEventListener('click', init)
+
+//btnNew.addEventListener('click', init)
